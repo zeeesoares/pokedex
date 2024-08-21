@@ -70,6 +70,7 @@ function displayPokemon(pokemon) {
         <p>Tipo: ${pokemon.types.map(typeInfo => capitalizeFirstLetter(typeInfo.type.name)).join(', ')}</p>
         <p>Peso: ${(pokemon.weight / 10).toFixed(1)} kg</p>
         <p>Altura: ${(pokemon.height / 10).toFixed(1)} m</p>
+        <button id="More Info">INFO</button>
     `;
 }
 
