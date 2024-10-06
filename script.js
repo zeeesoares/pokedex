@@ -65,14 +65,26 @@ function clearPokemonContainer() {
 function displayPokemon(pokemon) {
     const pokemonContainer = document.getElementById('pokemonContainer');
     pokemonContainer.innerHTML = `
-        <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+        <img id="pokemonImage" src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
         <h2>${capitalizeFirstLetter(pokemon.name)} (#${pokemon.id})</h2>
         <p>Tipo: ${pokemon.types.map(typeInfo => capitalizeFirstLetter(typeInfo.type.name)).join(', ')}</p>
         <p>Peso: ${(pokemon.weight / 10).toFixed(1)} kg</p>
         <p>Altura: ${(pokemon.height / 10).toFixed(1)} m</p>
-        <button id="More Info">INFO</button>
+        <button id="shinyButton">SHINY</button>
+        <button id="infoButton">INFO</button>
     `;
+
+    document.getElementById('shinyButton').addEventListener('click', () => {
+        const shinyImage = pokemon.sprites.front_shiny;
+        const pokemonImage = document.getElementById('pokemonImage');
+        if (pokemonImage.src === shinyImage) {
+            pokemonImage.src = pokemon.sprites.front_default;
+        } else {
+            pokemonImage.src = shinyImage;
+        }
+    });
 }
+
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
