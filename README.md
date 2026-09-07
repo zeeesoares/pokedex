@@ -1,43 +1,45 @@
 # Pokédex Web Application
-## Description
-This is a simple Pokédex web application developed using HTML, CSS, and JavaScript. It leverages the PokéAPI to fetch and display information about Pokémon. Users can search for Pokémon by name, view details such as type, weight, height, and image. The application also filters the Pokémon list in real-time as the user types, displaying the results within a scrollable container to maintain a fixed layout.
 
-![Preview](images/preview.png)
+## Description
+
+A Pokédex web app built with **Vue 3 + Vite + Pinia**. It uses the PokéAPI to fetch and display Pokémon data, and includes a full competitive breeding calculator with exact probability math.
 
 ## Features
-Search by Name: Search for any Pokémon by entering its name in the search bar.
-Detailed View: View detailed information about the selected Pokémon, including its image, type, weight, and height.
-Filtered List: As the user types in the search bar, a filtered list of Pokémon that start with the entered letters is displayed.
-Scrollable Container: The Pokémon list is displayed in a scrollable container, preventing the page layout from expanding.
 
-## Technologies Used
-- HTML: Provides the basic structure of the application.
-- CSS: Handles the styling of the interface, including the responsive layout and the design of the scrollable container.
-- JavaScript: Manages DOM manipulation, integrates with the PokéAPI, and implements the logic for searching and displaying Pokémon.
-- PokéAPI: An external API used to fetch Pokémon data.
+- **Pokédex** — Search any Pokémon by name or ID. View type, base stats, weight, height, shiny sprite, forms/variants, and the full evolution chain.
+- **Breeding Calculator** — Select two parents with their items and IVs, then calculate the exact probability of hitting a target — either "at least N perfect IVs" or a specific set of stats. Uses combinatorial math (no Monte Carlo).
+- **My Box** — Track your own collection. Add species, log individual specimens with gender, nature and IVs, and run the **Best Breeding Pairs** tool to find the optimal pairings from your box.
 
-## How It Works
-- Search by Name: The user can enter a Pokémon's name in the search bar. Upon clicking the search button or pressing "Enter," the application sends a request to the PokéAPI to retrieve the corresponding Pokémon.
+## Tech Stack
 
-- Real-Time Filtering: As the user types in the search bar, the Pokémon list is filtered in real-time, showing only those whose names start with the entered letters. The results are displayed in a fixed-size, scrollable container.
+- [Vue 3](https://vuejs.org/) — Composition API with `<script setup>`
+- [Vite 5](https://vitejs.dev/) — build tooling
+- [Pinia](https://pinia.vuejs.org/) — global store with localStorage persistence
+- [vue-router 4](https://router.vuejs.org/) — hash-based routing (`/pokedex`, `/breeding`, `/mybox`)
+- [PokéAPI](https://pokeapi.co/) — Pokémon data source
+- [Lucide Vue](https://lucide.dev/) — icons
 
-- Display Pokémon Details: When a Pokémon from the filtered list is clicked, detailed information about that Pokémon is displayed in the main container.
-
-## Installation and Setup
-To run this project locally, follow these steps:
+## Getting Started
 
 Clone the repository:
-``` bash
+```bash
 git clone https://github.com/zeeesoares/pokedex.git
-```
-
-Navigate to the project directory:
-``` bash
 cd pokedex
 ```
 
-Open index.html in your preferred web browser to view the application.
+Install dependencies and start the dev server:
+```bash
+npm install
+npm run dev
+```
 
-# Acknowledgements
-- Thanks to PokéAPI for providing the Pokémon data.
-- Inspiration from the original Pokémon games.
+Build for production:
+```bash
+npm run build
+```
+
+## Acknowledgements
+
+- [PokéAPI](https://pokeapi.co/) for providing all Pokémon data.
+- Inspiration from the original Pokémon games and the competitive breeding community.
+- **Special thanks to MikedaGaita** — for the ideas, the feedback, and for being the reason half of these features exist. 🎸

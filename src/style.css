@@ -1,0 +1,114 @@
+/* ── Design tokens ─────────────────────────────────────────────────────────── */
+:root {
+  --font: 'Nunito', system-ui, sans-serif;
+
+  /* Brand */
+  --red:       #CC0000;
+  --red-dark:  #8B0000;
+  --red-light: #fff0f0;
+
+  /* Surface */
+  --bg:      #F4F5FA;
+  --surface: #FFFFFF;
+  --border:  #E4E6EF;
+
+  /* Text */
+  --text:    #1A1A2E;
+  --muted:   #6B7280;
+
+  /* IV quality */
+  --iv-31:   #16a34a;
+  --iv-high: #65a30d;
+  --iv-mid:  #ca8a04;
+  --iv-low:  #dc2626;
+
+  /* Type colors — exact Scarlet/Violet palette */
+  --t-normal:   #9FA19F;
+  --t-fire:     #E62829;
+  --t-water:    #2980EF;
+  --t-electric: #FAC000;
+  --t-grass:    #3FA129;
+  --t-ice:      #3DCEF3;
+  --t-fighting: #FF8000;
+  --t-poison:   #9141CB;
+  --t-ground:   #915121;
+  --t-flying:   #81B9EF;
+  --t-psychic:  #EF4179;
+  --t-bug:      #91A119;
+  --t-rock:     #AFA981;
+  --t-ghost:    #704170;
+  --t-dragon:   #5060E1;
+  --t-dark:     #624D4E;
+  --t-steel:    #60A1B8;
+  --t-fairy:    #EF70EF;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 3px rgba(26,26,46,.07), 0 1px 2px rgba(26,26,46,.04);
+  --shadow-md: 0 4px 12px rgba(26,26,46,.08), 0 2px 4px rgba(26,26,46,.04);
+  --shadow-lg: 0 8px 24px rgba(26,26,46,.10), 0 4px 8px rgba(26,26,46,.05);
+
+  --radius:    12px;
+  --radius-sm: 8px;
+  --radius-lg: 20px;
+}
+
+/* ── Reset ─────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100dvh; }
+img  { display: block; }
+button { font-family: var(--font); }
+input, select { font-family: var(--font); }
+
+/* ── Utilities ─────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 20px; border: none; border-radius: var(--radius-sm);
+  font-size: 14px; font-weight: 800; cursor: pointer; letter-spacing: .2px;
+  transition: filter .15s, transform .1s, box-shadow .15s;
+  white-space: nowrap;
+}
+.btn:active { transform: scale(.97); }
+.btn-red  { background: var(--red); color: #fff; }
+.btn-red:hover  { filter: brightness(1.1); box-shadow: 0 2px 12px rgba(204,0,0,.3); }
+.btn-ghost { background: transparent; border: 1.5px solid var(--border); color: var(--muted); }
+.btn-ghost:hover { border-color: var(--red); color: var(--red); }
+.btn-sm { padding: 6px 12px; font-size: 12px; }
+.btn-block { width: 100%; }
+
+.field {
+  width: 100%; padding: 9px 12px;
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  font-size: 14px; font-weight: 600; color: var(--text); background: var(--surface);
+  outline: none; transition: border-color .2s;
+}
+.field:focus { border-color: var(--red); }
+
+.badge-type {
+  display: inline-block; padding: 3px 10px;
+  border-radius: 20px; font-size: 11px; font-weight: 800; color: #fff;
+  text-transform: uppercase; letter-spacing: .5px;
+  text-shadow: 0 1px 2px rgba(0,0,0,.25);
+}
+
+.section-title {
+  font-size: 11px; font-weight: 900; text-transform: uppercase;
+  letter-spacing: .7px; color: var(--muted);
+}
+
+.fade-enter-active, .fade-leave-active { transition: opacity .2s, transform .2s; }
+.fade-enter-from { opacity: 0; transform: translateY(8px); }
+.fade-leave-to   { opacity: 0; }
+
+/* ── IV quality helpers (shared by IVGrid & specimens) ─────────────────────── */
+.iv-31   { --iv-c: var(--iv-31);   border-color: var(--iv-31)   !important; color: var(--iv-31);   }
+.iv-high { --iv-c: var(--iv-high); border-color: var(--iv-high) !important; color: var(--iv-high); }
+.iv-mid  { --iv-c: var(--iv-mid);  border-color: var(--iv-mid)  !important; color: var(--iv-mid);  }
+.iv-low  { --iv-c: var(--iv-low);  border-color: var(--iv-low)  !important; color: var(--iv-low);  }
